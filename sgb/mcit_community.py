@@ -4,6 +4,7 @@ class MCITCommunity:
     # TODO: Create a better message builder:
     # https://github.com/slackapi/python-slackclient/issues/392
     # https://github.com/slackapi/python-slackclient/pull/400
+    
     WELCOME_BLOCK = {
         "type": "section",
         "text": {

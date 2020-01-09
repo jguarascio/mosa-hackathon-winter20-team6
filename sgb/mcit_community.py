@@ -23,43 +23,63 @@ class MCITCommunity:
         self.icon_emoji = ":robot_face:"
         self.timestamp = ""
 
-    def get_message_payload(self, command: str):
-        if command == 'start':
-            return {
-                "ts": self.timestamp,
-                "channel": self.channel,
-                "username": self.username,
-                "icon_emoji": self.icon_emoji,
-                "blocks": [
-                    self.WELCOME_BLOCK,
-                    self.DIVIDER_BLOCK,
-                    *self._get_find_block(),
-                    self.DIVIDER_BLOCK,
-                ],
-            }
-        elif command == 'find':
-            return {
-                "ts": self.timestamp,
-                "channel": self.channel,
-                "username": self.username,
-                "icon_emoji": self.icon_emoji,
-                "blocks": [
-                    *self._get_classmate_block(),
-                ],
-            }
+    def get_start_message(self):
+        return {
+            "ts": self.timestamp,
+            "channel": self.channel,
+            "username": self.username,
+            "icon_emoji": self.icon_emoji,
+            "blocks": [
+                self.WELCOME_BLOCK,
+                self.DIVIDER_BLOCK,
+                *self._get_start_block(),
+                self.DIVIDER_BLOCK,
+            ],
+        }
 
-    def _get_find_block(self):
+    def get_help_message(self):
+        return {
+            "ts": self.timestamp,
+            "channel": self.channel,
+            "username": self.username,
+            "icon_emoji": self.icon_emoji,
+            "blocks": [
+                *self._get_help_block(),
+            ],
+        }
+    
+    def get_pairs_message(self, pairs: list):
+        return {
+            "ts": self.timestamp,
+            "channel": self.channel,
+            "username": self.username,
+            "icon_emoji": self.icon_emoji,
+            "blocks": [
+                *self._get_random_pairs_block(pairs),
+            ],
+        }
+
+    def _get_start_block(self):
         text = (
             f"*Find a classmate* :thinking_face:\n"
-            "You can quickly find a classmate to chat with by typing 'find'."
+            "You can quickly find a classmate to chat with by typing 'find'.\n"
+            "If you need help at any time, just type 'help'."
+        )
+        return self._get_task_block(text)
+    
+    def _get_help_block(self):
+        text = (
+            f"*Unknown command* :thinking_face:\n"
+            "Please enter 'find' to find a classmate."
         )
         return self._get_task_block(text)
 
-    def _get_classmate_block(self):
+    def _get_random_pairs_block(self, pairs: list):
+        string = " "
+        string = string.join(pairs)
         text = (
-            f"*We have found you the perfect match!*\n"
-            "There should now be a 'Direct Message' set up between you and your classmate.\n"
-            "Don't be a stranger!"
+            f"*Here are the pairs!*\n"
+            '{string}'.format(string)
             )
         return self._get_task_block(text)
 

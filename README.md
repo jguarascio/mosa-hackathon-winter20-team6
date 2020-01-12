@@ -1,5 +1,8 @@
 # mosa-hackathon-team6
 
+![GitHub Logo](/images/mosahack_team6_11jan2020_teambot.png)
+Format: ![Preview our app!](https://github.com/jguarascio/mosa-hackathon-winter20-team6/tree/master/images/mosahack_team6_11jan2020_teambot.png)
+
 ## Inspiration
 In an online program, it is often difficult to make real world connections with classmates. The goal of our Slack Bot is to facilitate introductions to fellow students and also make creation of teams more automatic.
 

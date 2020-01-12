@@ -30,9 +30,9 @@ Ideally we would like to host the team bot on a cloud server and integrate it wi
 We would also like to make our pairing algorithm more complex based on students' shared interests.
 
 ## Built By
-[Steve Brooks](https://github.com/stevegbrooks)   
-[Eunice Hameyie](https://github.com/ehameyie)   
-[Joe Guarascio](https://github.com/jguarascio)   
+Steve Brooks - [git](https://github.com/stevegbrooks) & [devpost](https://devpost.com/stevegbrooks)    
+Eunice Hameyie - [git](https://github.com/ehameyie) & [devpost](https://devpost.com/ehameyie)
+Joe Guarascio - [git](https://github.com/jguarascio) & [devpost](https://devpost.com/jgua)
 
 ## Try it output!
 Join our test [slack channel](mcitteam6.slack.com) and run command `getteams`

@@ -34,5 +34,5 @@ Steve Brooks - [git](https://github.com/stevegbrooks) & [devpost](https://devpos
 Eunice Hameyie - [git](https://github.com/ehameyie) & [devpost](https://devpost.com/ehameyie)    
 Joe Guarascio - [git](https://github.com/jguarascio) & [devpost](https://devpost.com/jgua)
 
-## Try it output!
+## Try it out!
 Join our test [slack channel](mcitteam6.slack.com) and run command `getteams`

@@ -1,16 +1,22 @@
 # Based on https://www.fullstackpython.com/blog/build-first-slack-bot-python.html
-
 import random
 import os
 import re
 import slack
 import certifi
 import ssl as ssl_lib
+import configparser
+import logging
+
+LOGGER = logging.getLogger('teambot')
+# Get credentials
+config = configparser.ConfigParser()
+config.read('config/config.ini')
 
 # instantiate Slack client
 ssl_context = ssl_lib.create_default_context(cafile=certifi.where())
-bot_token = os.environ["SLACK_BOT_TOKEN"]
-oauth_token = os.environ["SLACK_OAUTH_TOKEN"]
+bot_token = config['SLACK']['SLACK_BOT_TOKEN'] #os.environ["SLACK_BOT_TOKEN"]
+oauth_token = config['SLACK']['SLACK_OAUTH_TOKEN'] #os.environ["SLACK_OAUTH_TOKEN"]
 web_client = slack.WebClient(token=bot_token)
 rtm_client = slack.RTMClient(token=bot_token, ssl=ssl_context)
 
@@ -77,9 +83,11 @@ def handle_command(**payload):
                 user_list = str(team)
                 user_list = user_list.translate({ord(i): None for i in "()' "})
                 print(user_list)
+                LOGGER.info("The user list is ..... %s"%user_list)
                 try:
                     # Create a direct multi-party IM
                     mpim = web_client.mpim_open(users=user_list)
+                    LOGGER.info("Successfully created multi-part IM")
                     # TODO: OR create a channel
                     # new_channel_name = ""
                     # Not sure if this is how to pass user IDs to kwargs...
@@ -97,8 +105,10 @@ def handle_command(**payload):
 
         # Sends the response back to the channel
         web_client.chat_postMessage(channel=channel_id, text=response or default_response)
+        LOGGER.info("Successfully created teams via teambot")
 
 
 if __name__ == "__main__":
     print("Starting RTM client...")
+    LOGGER.info("Starting RTM client..")
     rtm_client.start()

@@ -35,4 +35,4 @@ Eunice Hameyie - [git](https://github.com/ehameyie) & [devpost](https://devpost.
 Joe Guarascio - [git](https://github.com/jguarascio) & [devpost](https://devpost.com/jgua)
 
 ## Try it out!
-Join our test [slack channel](mcitteam6.slack.com) and run command `getteams`
+Join our workspace at mcitteam6.slack.com and send the command getteams in a mention to @team6

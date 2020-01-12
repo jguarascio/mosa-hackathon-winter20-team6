@@ -13,7 +13,6 @@ def random_pairs(bot, channel):
     :result: resulting pairs
     """
     channels_info = bot.channels_info(channel=channel)
-    print("here", channels_info)
     channel_members = channels_info["channel"]["members"]
 
     random.shuffle(channel_members)
